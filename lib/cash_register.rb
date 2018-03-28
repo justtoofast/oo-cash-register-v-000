@@ -10,7 +10,10 @@ class CashRegister
 
   def add_item(title, price, quantity=1)
     self.total += price * quantity
-    quantity.each do {|item| @items << title}
+    if quantity > 0
+      @items << title
+      quantity -= 1
+    end
   end
 
   def apply_discount
